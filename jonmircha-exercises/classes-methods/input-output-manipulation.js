@@ -2,16 +2,14 @@
 export function isString(v) {
   return isNaN(v);
 }
-export function getValue(id){
-  return document.getElementById(id).value;
-}
 export function getObj(id){
   return document.getElementById(id);
 }
-export function modifyHTMLValue(id, v) {
+export function modifyHTMLValue(id, v, color) {
   document.getElementById(id).innerHTML = v;
-}
-export function changeColor(id, color) {
   document.getElementById(id).style.color = color;
+}
+export function cut(value, size){
+    return value.substring(0, size);
 }
 
