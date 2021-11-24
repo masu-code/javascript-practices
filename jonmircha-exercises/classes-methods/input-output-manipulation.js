@@ -22,3 +22,7 @@ export class Input {
 export function modifyHTMLValue(objId, value) {
   document.getElementById(objId).innerHTML = value;
 }
+
+export function changeColor(id, color){
+  document.getElementById(id).style.color = color;
+}
