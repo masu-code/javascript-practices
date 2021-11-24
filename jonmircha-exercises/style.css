@@ -1,3 +1,9 @@
 body{
     text-align: center;
 }
+.inline{
+    display: inline-block;
+}
+#e2-input-number{
+    width: 70px;
+}

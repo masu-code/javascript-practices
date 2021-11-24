@@ -1,28 +1,15 @@
-export class Input {
-  //vars declarations
-  value = undefined;
-  obj = undefined;
-  static isString() {
-    return isNaN(this.value);
-  }
-  static set setObj(Obj) {
-    this.Obj = Obj;
-  }
-  static set setValue(value) {
-    this.value = value;
-  }
-  static get getLength() {
-    return this.value.length;
-  }
-  static printLength(inputId) {
-    document.getElementById("result").innerHTML = MyInput.getLength;
-  }
+//v is always 'value'
+export function isString(v) {
+  return isNaN(v);
 }
-
-export function modifyHTMLValue(objId, value) {
-  document.getElementById(objId).innerHTML = value;
+export function getObj(id){
+  return document.getElementById(id);
 }
-
-export function changeColor(id, color){
+export function modifyHTMLValue(id, v, color) {
+  document.getElementById(id).innerHTML = v;
   document.getElementById(id).style.color = color;
 }
+export function cut(value, size){
+    return value.substring(0, size);
+}
+
