@@ -16,11 +16,29 @@
       texto, pe. miFuncion("Hola Mundo") devolverá 10.
     </p>
     <form onSubmit="return false;" autocomplete="off">
-      <label for="input-n-1"><p>Introduzca una cadena texto y presione 'ENTER'</p></label>
-      <input type="text" id="input-n-1" placeholder="Cadena de texto"/>
+      <label for="e1-input-text"><p>Introduzca una cadena de texto y presione 'ENTER'</p></label>
+      <input type="text" id="e1-input-text" placeholder="Cadena de texto" name="e1-input-text"/>
       <p>Resultado:</p>
-      <p id="result-n-1">0</p>
+      <p id="e1-p-result">0</p>
+      <hr>
     </form>
+    </section>
+
+    <section id="exercise-n-2"> <!-- SECOND EXERCISE -->
+      <h1> Ejercicio 2</h1>
+      <p>Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".</p>
+      <form onSubmit="return false;" autocomplete="off">
+      <label for="input-n-2"><p>Introduzca ua cadena de texto y cuanto quiere cortarla!</p></label>
+      <input type="text" id="e2-input-text" placeholder="Cadena de texto"/>
+      <input type="number" id="e2-input-number" placeholder="Número" style="width:70px" min="0">
+      <input type="button" id="e2-button-cut" value="Cortar">
+      <br>
+      <section>
+        <p class="inline">Resultado:</p> <p id="e2-p-result" class="inline">0</p>
+      </section>
+      <hr>
+    </form>
+    </section>
     </section>
     <script type="module" src="app.js"></script>
   </body>
