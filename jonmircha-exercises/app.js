@@ -3,6 +3,8 @@ import {
   getObj,
   modifyHTMLValue,
   cut,
+  separateByCharacter,
+
 } from "./classes-methods/input-output-manipulation.js";
 /* First exercise */
 {
@@ -68,3 +70,17 @@ import {
       }
     });
 } 
+/* Exercise 3 */
+{
+/* Variables declaration */
+let e3InputTextObj = getObj("e3-input-text");
+let e3InputCharacterObj = getObj("e3-input-character");
+let separatedText;
+let character;
+
+document.getElementById("e3-button-separate").addEventListener("click", function (){   //Added to button a event listener
+    character = e3InputCharacterObj.value;                                             //it takes the character from the inut
+    separatedText = separateByCharacter(e3InputTextObj.value, character);              //it separates the text with the character
+    modifyHTMLValue("e3-p-result", separatedText);                                     //print the result 
+});
+}

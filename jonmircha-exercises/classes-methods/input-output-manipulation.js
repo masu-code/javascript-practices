@@ -13,3 +13,6 @@ export function cut(value, size){
     return value.substring(0, size);
 }
 
+export function separateByCharacter(text, char){
+  return text.split(char);
+}
