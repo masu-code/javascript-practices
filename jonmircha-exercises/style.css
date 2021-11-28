@@ -1,6 +1,8 @@
 body{
-    font: 90% sans-serif;
-    text-align: center;
+    font: Trebuchet MS;
+    background-color: #0a192f;
+    margin-left: 200px;
+    margin-right: 200px;
 }
 .inline{
     display: inline-block;
@@ -13,4 +15,13 @@ body{
 }
 #warning{
     color: red;
+}
+p{
+    font-size: 20px;
+    color: #ccd6f6;
+}
+
+h1{
+    font-size: 50px;
+    color: #64ffda;
 }
