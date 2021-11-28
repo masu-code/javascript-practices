@@ -9,6 +9,31 @@ import {
   printObjProperties,
 
 } from "./classes-methods/input-output-manipulation.js";
+//to study
+const appearOptions = {
+  threshold: 1,
+  rootMargin: "0px 0px -100px 0px"
+};
+
+const faders = document.querySelectorAll('.fade-in');
+const appearOnScroll = new IntersectionObserver(function(
+  entries,
+  appearOnScoll
+) {
+  entries.forEach(entry =>{
+    if(!entry.isIntersecting){
+      return;
+    } else{
+      entry.target.classList.add('appear');
+      appearOnScoll.unobserve(entry.target);
+    }
+  })
+}, appearOptions);
+
+faders.forEach(fader =>{
+  appearOnScroll.observe(fader);
+});
+
 //Exercise 1
 {
   /* Variables declaration */
@@ -106,6 +131,7 @@ document.getElementById("e3-button-separate").addEventListener("click", function
 }
 //Exercise 6
 {
+  //variable declaration
   let e6ButtonCountId = "e6-button-count",
   e6PResultId = "e6-p-result",
   e6InputTextId = "e6-input-text",
@@ -127,7 +153,24 @@ document.getElementById("e3-button-separate").addEventListener("click", function
   e7ButtonObj = getObj("e7-button-check");
 
   e7ButtonObj.addEventListener("click", () =>{
-    e7InputTextObj.value == reverseAText(e7InputTextObj.value) ? modifyHTMLValue("e7-result", true, "green") : modifyHTMLValue("e7-result", false, "red"); 
+    e7InputTextObj.value == reverseAText(e7InputTextObj.value) ? modifyHTMLValue("e7-p-result", true, "green") : modifyHTMLValue("e7-result", false, "red"); 
   });
+}
+//Exercise 8
+{
+  //variable declaration
+  let e8InputTextObj = getObj("e8-input-text"),
+  e8ButtonDeleteObj = getObj("e8-button-delete"),
+  text, character, cleanText,
+  e8InputCharacterObj = getObj("e8-input-character"),
+  regexp;
 
+  e8ButtonDeleteObj.addEventListener("click", () =>{
+    character = e8InputCharacterObj.value;
+    text = e8InputTextObj.value;
+    regexp = new RegExp(character, 'g');
+    cleanText = text.replace(regexp, "");
+    character && text ? modifyHTMLValue("e8-p-result", cleanText) : modifyHTMLValue("e8-p-result", "Ingresa ambos valores por favor", "red");
+  })
+  
 }

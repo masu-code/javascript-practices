@@ -21,7 +21,7 @@ export let countWordsInAnArray = arr =>{
     count = 1;
     if (countedWords.includes(arr[index])) {continue;} //validates the element is not counted
     countedWordsCount++;                               //Set the countedWords array position
-    countedWords[countedWordsCount] = arr[index];                  //add the word to "counted section" 
+    countedWords[countedWordsCount] = arr[index];                  //add the word to "counted section class = "col fade-in"" 
     if (index == arr.length) {                                     //Validates if is the last element -it is understood that is lonely-
       repeatedWords[arr[index]] = `${arr[index]}: ${count}. `;
       continue;

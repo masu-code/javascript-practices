@@ -9,7 +9,7 @@
     <title>Exercises</title>
   </head>
   <body>
-    <section> <!-- FIRST EXERCISE -->
+    <section class = "col fade-in"> <!-- FIRST EXERCISE -->
       <h1>Ejercicio 1</h1> 
     <p>
       Programa una función que cuente el número de caracteres de una cadena de
@@ -23,7 +23,7 @@
       
     </section>
 
-    <section> <!-- SECOND EXERCISE -->
+    <section class = "col fade-in"> <!-- SECOND EXERCISE -->
       <h1> Ejercicio 2</h1>
       <p>Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".</p>
       <form onSubmit="return false;" autocomplete="off">
@@ -36,7 +36,7 @@
         <p class="inline">Resultado:</p> <p id="e2-p-result" class="inline">0</p>
       
     </section>
-    <section> <!-- THIRD EXERCISE -->
+    <section class = "col fade-in"> <!-- THIRD EXERCISE -->
       <h1>Ejercicio 3</h1>
       <p>Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].</p>
       <label for="e3-input-text"><p>Introduzca una cadena de texto y presione 'ENTER'</p></label>
@@ -49,7 +49,7 @@
       
     </section>
     <!-- THE FOURTH EXERCISE WAS OMITTED FOR BE EASY -->
-    <section> <!-- FIFTH EXERCISE -->
+    <section class = "col fade-in"> <!-- FIFTH EXERCISE -->
       <h1>Ejercicio 5</h1>
       <p>Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".</p>
       <input type="text" id="e5-input-text" placeholder="Texto a invertir"/>
@@ -57,7 +57,7 @@
       <p id="e5-p-result">Esperando...</p>
       
     </section>
-    <section> <!-- SIXTH EXERCISE -->
+    <section class = "col fade-in"> <!-- SIXTH EXERCISE -->
       <h1>Ejercicio 6</h1>
       <p>Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.</p>
       <p id="warning">LOS CARACTERES ESPECIALES SERÁN OMITIDOS</p>
@@ -69,12 +69,21 @@
       
     </section>
     <script type="module" src="app.js"></script>
-    <section> <!-- SEVENTH EXERCISE -->
+    <section class = "col fade-in"> <!-- SEVENTH EXERCISE -->
       <h1>Ejercicio 7</h1>
       <p>Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.</p>
       <input type="text" id="e7-input-text" placeholder="Texto a evaluar"/>
         <input type="button" id="e7-button-check" value="Evaluar">
-        <p id="e7-result">Esperando...</p>
+        <p id="e7-p-result">Esperando...</p>
+    </section>
+
+    <section class = "col fade-in"> <!-- EIGHTH EXERCISE -->
+      <h1>Ejercicio 8</h1>
+      <p>Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.</p>
+      <input type="text" placeholder="Cadena de texto" id="e8-input-text">
+      <input type="text" placeholder="Caracter a eliminar" id="e8-input-character">
+      <input type="button" value="Eliminar" id="e8-button-delete">
+      <p id="e8-p-result">Esperando...</p>
     </section>
   </body>
 </html>
