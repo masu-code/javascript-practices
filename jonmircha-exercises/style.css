@@ -1,4 +1,5 @@
 body{
+    font: 90% sans-serif;
     text-align: center;
 }
 .inline{
@@ -9,4 +10,7 @@ body{
 }
 #e3-input-character{
     width: 70px;
+}
+#warning{
+    color: red;
 }

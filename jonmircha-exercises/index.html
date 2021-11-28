@@ -9,7 +9,7 @@
     <title>Exercises</title>
   </head>
   <body>
-    <section id="exercise-n-1"> <!-- FIRST EXERCISE -->
+    <section> <!-- FIRST EXERCISE -->
       <h1>Ejercicio 1</h1> 
     <p>
       Programa una función que cuente el número de caracteres de una cadena de
@@ -24,7 +24,7 @@
       <hr>
     </section>
 
-    <section id="exercise-n-2"> <!-- SECOND EXERCISE -->
+    <section> <!-- SECOND EXERCISE -->
       <h1> Ejercicio 2</h1>
       <p>Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".</p>
       <form onSubmit="return false;" autocomplete="off">
@@ -40,8 +40,8 @@
     <section> <!-- THIRD EXERCISE -->
       <h1>Ejercicio 3</h1>
       <p>Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].</p>
+      <label for="e3-input-text"><p>Introduzca una cadena de texto y presione 'ENTER'</p></label>
       <form onSubmit="return false;" autocomplete="off">
-        <label for="e3-input-text"><p>Introduzca una cadena de texto y presione 'ENTER'</p></label>
         <input type="text" id="e3-input-text" placeholder="Cadena de texto"/>
         <input type="text" id="e3-input-character" placeholder="Caracter"/>
         <input type="button" id="e3-button-separate" value="Separar">
@@ -49,6 +49,34 @@
         <p id="e3-p-result">Esperando...</p>
       <hr>
     </section>
+    <!-- THE FOURTH EXERCISE WAS OMITTED FOR BE EASY -->
+    <section> <!-- FIFTH EXERCISE -->
+      <h1>Ejercicio 5</h1>
+      <p>Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".</p>
+      <input type="text" id="e5-input-text" placeholder="Texto a invertir"/>
+      <input type="button" id="e5-button-reverse" value="Invertir">
+      <p id="e5-p-result">Esperando...</p>
+      <hr>
+    </section>
+    <section> <!-- SIXTH EXERCISE -->
+      <h1>Ejercicio 6</h1>
+      <p>Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.</p>
+      <p id="warning">LOS CARACTERES ESPECIALES SERÁN OMITIDOS</p>
+      <form onSubmit="return false;" autocomplete="off">
+        <input type="text" id="e6-input-text" placeholder="Texto a evaluar"/>
+        <input type="button" id="e6-button-count" value="contar">
+      </form>
+        <p id="e6-p-result">Esperando...</p>
+      <hr>
+    </section>
     <script type="module" src="app.js"></script>
+    <section> <!-- SEVENTH EXERCISE -->
+      <h1>Ejercicio 7</h1>
+      <p>Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.</p>
+      <input type="text" id="e7-input-text" placeholder="Texto a evaluar"/>
+        <input type="button" id="e7-button-check" value="Evaluar">
+        <p>Esperando...</p>
+      <hr>
+    </section>
   </body>
 </html>

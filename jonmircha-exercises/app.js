@@ -4,6 +4,9 @@ import {
   modifyHTMLValue,
   cut,
   separateByCharacter,
+  reverseAText,
+  countWordsInAnArray,
+  printObjProperties,
 
 } from "./classes-methods/input-output-manipulation.js";
 /* First exercise */
@@ -84,3 +87,36 @@ document.getElementById("e3-button-separate").addEventListener("click", function
     modifyHTMLValue("e3-p-result", separatedText);                                     //print the result 
 });
 }
+//Exercise 5
+{
+  //Variables declaration
+  let e5InputTextObj = getObj("e5-input-text");
+  let e5ButtonReverseObj = getObj("e5-button-reverse");
+  let resultId = "e5-p-result";
+  let inputValue;
+
+  e5InputTextObj.addEventListener("keydown", event => {if (event.key == 'Enter') e5ButtonReverseObj.focus()}); //if press Enter in the input, go to button
+  e5ButtonReverseObj.addEventListener("keydown", event => {if(event.key == 'Enter') e5InputTextObj.focus()});  //if you press Enter in button, go to input
+  e5ButtonReverseObj.addEventListener("click", () => {                  
+    inputValue = e5InputTextObj.value;                                                        //Assigns the value of the input in a var
+    if(!inputValue) return modifyHTMLValue(resultId, "Ingresa un texto por favor!", "red");   //if is empty
+    if(!isNaN(inputValue)) return modifyHTMLValue(resultId, "No se aceptan números", "red");  //if is a number
+    modifyHTMLValue(resultId, reverseAText(inputValue), "green");                             //else
+  });
+}
+//Exercise 6
+{
+  let e6ButtonCountId = "e6-button-count",
+  e6PResultId = "e6-p-result",
+  e6InputTextId = "e6-input-text",
+  e6ButtonCountObj = getObj(e6ButtonCountId),
+  text;
+  
+  e6ButtonCountObj.addEventListener("click", () =>{
+    text = document.getElementById(e6InputTextId).value
+    text = text.replace(/[^a-zA-Z ]/g, "");
+    text = separateByCharacter(text, " ");
+    text = countWordsInAnArray(text);
+    printObjProperties(text, e6PResultId);
+  });
+}   
