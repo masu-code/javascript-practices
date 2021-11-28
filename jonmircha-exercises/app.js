@@ -9,7 +9,7 @@ import {
   printObjProperties,
 
 } from "./classes-methods/input-output-manipulation.js";
-/* First exercise */
+//Exercise 1
 {
   /* Variables declaration */
   let e1InputTextId = "e1-input-text";
@@ -30,7 +30,7 @@ import {
     }
   });
 }
-/* Second exercise */
+//Exercise 2
 {
   /* Variables declaration */
   let e2InputTextId = "e2-input-text";
@@ -73,7 +73,7 @@ import {
       }
     });
 } 
-/* Exercise 3 */
+//Exercise 3
 {
 /* Variables declaration */
 let e3InputTextObj = getObj("e3-input-text");
@@ -120,3 +120,14 @@ document.getElementById("e3-button-separate").addEventListener("click", function
     printObjProperties(text, e6PResultId);
   });
 }   
+//Exercise 7
+{
+  //variable declaration
+  let e7InputTextObj = getObj("e7-input-text"),
+  e7ButtonObj = getObj("e7-button-check");
+
+  e7ButtonObj.addEventListener("click", () =>{
+    e7InputTextObj.value == reverseAText(e7InputTextObj.value) ? modifyHTMLValue("e7-result", true, "green") : modifyHTMLValue("e7-result", false, "red"); 
+  });
+
+}
