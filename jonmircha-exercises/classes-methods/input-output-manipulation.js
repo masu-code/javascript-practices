@@ -6,10 +6,10 @@ export let modifyHTMLValue = (id, v, color) =>{
 export let cut = (value, size) => value.substring(0, size);
 export let separateByCharacter = (text, char) => text.split(char);
 export let getObj = id => document.getElementById(id);
-export let reverseAText = text => text ? text.split("").reverse().join("") : "Ingresa texto por favor!";
+export let reverseAText = text => text.split("").reverse().join("");
 export let isString = v => isNaN(v);
-export let reverseText = text => text.split("").reverse().join("");
 export let getValue = id => document.getElementsByName(id).value;
+export let getRandom = (min, max) => Math.round((Math.random() * (max - min + 1)) + min);
 
 export let countWordsInAnArray = arr =>{
   let count,

@@ -7,6 +7,7 @@ import {
   reverseAText,
   countWordsInAnArray,
   printObjProperties,
+  getRandom,
 
 } from "./classes-methods/input-output-manipulation.js";
 //to study
@@ -153,7 +154,7 @@ document.getElementById("e3-button-separate").addEventListener("click", function
   e7ButtonObj = getObj("e7-button-check");
 
   e7ButtonObj.addEventListener("click", () =>{
-    e7InputTextObj.value == reverseAText(e7InputTextObj.value) ? modifyHTMLValue("e7-p-result", true, "green") : modifyHTMLValue("e7-result", false, "red"); 
+    e7InputTextObj.value == reverseAText(e7InputTextObj.value) ? modifyHTMLValue("e7-p-result", true, "green") : modifyHTMLValue("e7-p-result", false, "red"); 
   });
 }
 //Exercise 8
@@ -173,4 +174,20 @@ document.getElementById("e3-button-separate").addEventListener("click", function
     character && text ? modifyHTMLValue("e8-p-result", cleanText) : modifyHTMLValue("e8-p-result", "Ingresa ambos valores por favor", "red");
   })
   
+}
+//Exercise 9
+{
+  let e9Button = getObj("e9-button");
+
+  e9Button.addEventListener("click", () =>{
+    modifyHTMLValue("e9-result", getRandom(501, 600), "green");
+  });
+}
+//Exercise 10
+{
+  let e10InputObj = getObj("e10-input"),
+  e10ResultId = "e10-result";
+  getObj("e10-button").addEventListener("click", ()=>{
+    e10InputObj.value == reverseAText(e10InputObj.value) ? modifyHTMLValue(e10ResultId, true, "green") : modifyHTMLValue(e10ResultId, false, "red"); 
+  });
 }
