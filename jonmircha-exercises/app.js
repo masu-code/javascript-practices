@@ -8,6 +8,7 @@ import {
   countWordsInAnArray,
   printObjProperties,
   getRandom,
+  getFactorial,
 
 } from "./classes-methods/input-output-manipulation.js";
 //to study
@@ -189,5 +190,13 @@ document.getElementById("e3-button-separate").addEventListener("click", function
   e10ResultId = "e10-result";
   getObj("e10-button").addEventListener("click", ()=>{
     e10InputObj.value == reverseAText(e10InputObj.value) ? modifyHTMLValue(e10ResultId, true, "green") : modifyHTMLValue(e10ResultId, false, "red"); 
+  });
+}
+//Exercise 11
+{
+  let e11ButtonObj = getObj("e11-button"),
+  e11InputObj = getObj("e11-input");
+  e11ButtonObj.addEventListener("click", () =>{
+    modifyHTMLValue("e11-result", getFactorial(e11InputObj.value), "green"); //You can not call a function that returns an object and then put it .value
   });
 }

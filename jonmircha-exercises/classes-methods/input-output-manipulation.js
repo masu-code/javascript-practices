@@ -53,3 +53,12 @@ export let printObjProperties = (obj, idResult) => {
   result.innerHTML = p.innerHTML;                   //Equals both inner HTML
   p.innerHTML = "";                                 //Reset the p value, this is to print the output always in the same line!
 }
+
+export let getFactorial = number =>{
+  let result = 1;
+  if(number == 1) return result;          //validates if the number is 1
+  for (let i = 1; i <= number; i++) {
+    result = i * result;
+  }
+  return result;
+}
