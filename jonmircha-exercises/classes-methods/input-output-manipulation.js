@@ -62,3 +62,10 @@ export let getFactorial = number =>{
   }
   return result;
 }
+
+export let isCousinPrime = number =>{
+  for (let i = number - 1; i > 1; i--) {
+    if(number%i == 0) {return false;} 
+  }
+  return true;
+}

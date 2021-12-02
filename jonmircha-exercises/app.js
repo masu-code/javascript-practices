@@ -9,6 +9,7 @@ import {
   printObjProperties,
   getRandom,
   getFactorial,
+  isCousinPrime,
 
 } from "./classes-methods/input-output-manipulation.js";
 //to study
@@ -199,4 +200,12 @@ document.getElementById("e3-button-separate").addEventListener("click", function
   e11ButtonObj.addEventListener("click", () =>{
     modifyHTMLValue("e11-result", getFactorial(e11InputObj.value), "green"); //You can not call a function that returns an object and then put it .value
   });
+}
+//Exercise 12
+{
+  let e12ButtonObj = getObj("e12-button"),
+  e12InputObj = getObj("e12-input"),
+  e12ResultId = "e12-result";
+
+  e12ButtonObj.addEventListener("click", () => isCousinPrime(e12InputObj.value) ? modifyHTMLValue(e12ResultId, true, "green") : modifyHTMLValue(e12ResultId, false, "red"));
 }
