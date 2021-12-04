@@ -10,7 +10,9 @@ import {
   getRandom,
   getFactorial,
   isCousinPrime,
-
+  binaryToDecimal,
+  decimalToBinary,
+  isBinary
 } from "./classes-methods/input-output-manipulation.js";
 //to study
 const appearOptions = {
@@ -208,4 +210,27 @@ document.getElementById("e3-button-separate").addEventListener("click", function
   e12ResultId = "e12-result";
 
   e12ButtonObj.addEventListener("click", () => isCousinPrime(e12InputObj.value) ? modifyHTMLValue(e12ResultId, true, "green") : modifyHTMLValue(e12ResultId, false, "red"));
+}
+//Exercise 15
+{
+  let e15ButtonObj = getObj("e15-button"),
+  e15InputObj = getObj("e15-input"),
+  e15SelectObj = getObj("e15-select"),
+  e15ResultId = "e15-result";
+
+    e15ButtonObj.addEventListener("click", () =>{
+      //if empty
+      if(e15InputObj.value == "") return modifyHTMLValue(e15ResultId , "Tienes que llenar el espacio", "red");
+
+      //Binary to Decimal case
+      if(e15SelectObj.value == "Binario a Decimal"){
+        //is the input binary?
+        if(!isBinary(e15InputObj.value)) return modifyHTMLValue(e15ResultId , `${e15InputObj.value} no es un número binario`, "red");
+        //else    
+        modifyHTMLValue(e15ResultId , binaryToDecimal(e15InputObj.value), "green");
+      } 
+
+      //Decimal to Binary case
+      if(e15SelectObj.value == "Decimal a Binario")  modifyHTMLValue(e15ResultId, decimalToBinary(e15InputObj.value), "green");
+  });
 }

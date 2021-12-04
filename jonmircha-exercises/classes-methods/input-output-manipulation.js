@@ -69,3 +69,31 @@ export let isCousinPrime = number =>{
   }
   return true;
 }
+
+export let binaryToDecimal = (number) =>{
+  let arr = number.split("").reverse(),
+  result = 0;
+
+      for (let i = 0; i < arr.length; i++) {
+        if(arr[i] === "0") continue;
+        result += 2 ** i;
+      }
+      return result;
+}
+
+export let decimalToBinary = (number) => {
+  let divNumber = [],
+  result = [];
+  for (let i = 0; number > 0; i++) {
+    divNumber[i] = number;
+    number = Math.floor(number / 2);
+  }
+  divNumber = divNumber.reverse();
+  for (let i = 0; i < divNumber.length; i++) {
+    result[i] = divNumber[i]%2 == 0 ? 0 : 1;
+  }
+  result = result.join();
+  return result.replace(/,/g, "");
+}
+
+export let isBinary  = number => /^[01]+$/.test(number);
