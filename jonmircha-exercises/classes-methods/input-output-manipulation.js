@@ -10,6 +10,7 @@ export let reverseAText = text => text.split("").reverse().join("");
 export let isString = v => isNaN(v);
 export let getValue = id => document.getElementsByName(id).value;
 export let getRandom = (min, max) => Math.round((Math.random() * (max - min + 1)) + min);
+export let isBinary  = number => /^[01]+$/.test(number);
 
 export let countWordsInAnArray = arr =>{
   let count,
@@ -19,7 +20,7 @@ export let countWordsInAnArray = arr =>{
 
   for (let index = 0; index < arr.length; index++) {
     count = 1;
-    if (countedWords.includes(arr[index])) {continue;} //validates the element is not counted
+    if (countedWords.includes(arr[index])) {|inue;} //validates the element is not counted
     countedWordsCount++;                               //Set the countedWords array position
     countedWords[countedWordsCount] = arr[index];                  //add the word to "counted section class = "col fade-in"" 
     if (index == arr.length) {                                     //Validates if is the last element -it is understood that is lonely-
@@ -96,4 +97,24 @@ export let decimalToBinary = (number) => {
   return result.replace(/,/g, "");
 }
 
-export let isBinary  = number => /^[01]+$/.test(number);
+export let howMuchTimeHasPassed =(year, month, day) =>{
+    let birthDayInMs = new Date(year, month - 1, day).getTime(),
+    yearsInMs = 1000 * 60 * 60 * 24 * 365,    //I need to divide the passed time in ms by this to get the time in years
+    currentTimeInMs = new Date().getTime(),
+    passedTime = currentTimeInMs - birthDayInMs; //To get the passed time in ms
+    return Math.floor(passedTime / yearsInMs);    //Return the rounded date :)
+}
+
+export let countVowelsAndConsonants = text =>{
+    let vowelsObj = text.match(/[aeiou]/g),
+    vowelsCount =  vowelsObj !== null ? vowelsObj.length : 0,
+    consonantsObj = text.match(/[bcdfghjklmnñpqrstvwxyz]/g),
+    consonantsCount =  consonantsObj !== null ? consonantsObj.length : 0;
+    return `Número de vocales: ${vowelsCount}, número de consonantes: ${consonantsCount}`
+}
+
+export let validatesEmail = text =>{
+  let reg = new RegExp(/gmail$/),
+  text = "example@gmail.com";
+  return reg.test(text); 
+}

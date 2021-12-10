@@ -60,7 +60,7 @@
     <section class = "col fade-in"> <!-- SIXTH EXERCISE -->
       <h1>Ejercicio 6</h1>
       <p>Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.</p>
-      <p id="warning">LOS CARACTERES ESPECIALES SERÁN OMITIDOS</p>
+      <p class="warning">LOS CARACTERES ESPECIALES SERÁN OMITIDOS</p>
       <form onSubmit="return false;" autocomplete="off">
         <input type="text" id="e6-input-text" placeholder="Texto a evaluar"/>
         <input type="button" id="e6-button-count" value="contar">
@@ -117,7 +117,7 @@
       <p>Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.</p>
       <form>
         <input type="number" placeholder="Número a convertir" id="e15-input">
-        <select id="e15-select" placeholder="Selecciona una operación">
+        <select id="e15-select">
           <option>Selecciona una operación</option>
             <option>Binario a Decimal</option>
             <option>Decimal a Binario</option>
@@ -125,6 +125,29 @@
         <input type="button" value="Transformar" id="e15-button">
       </form>
       <p id="e15-result">Esperando...</p>
+    </section>
+    <section> <!-- SEVENTEENTH EXERCISE -->
+      <h1>Ejercicio 17</h1>
+      <p>Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).</p>
+        <input type="number" id="e17-input-year" placeholder="Año" class="e17-form">
+        <input type="number" id="e17-input-month" placeholder="Mes" class="e17-form">
+        <input type="number" id="e17-input-day" placeholder="Día" class="e17-form">
+      <input type="button" id="e17-button" value="Calcular">
+      <p id="e17-result">Esperando...</p>
+    </section>
+    <section><!--  EIGHTEENTH EXERCISE -->
+      <h1>Ejercicio 18</h1>
+      <p>Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.</p>
+      <p class="warning">LOS NÚMEROS SIMPLEMENTE SERÁN OMITIDOS</p>
+      <input type="text" id="e18-input" placeholder="Texto a evaluar">
+      <input type="button" id="e18-button" value="Contar">
+      <p id="e18-result">Esperando...</p>
+    </section> <!-- NINETEENTH EXERCISE -->
+    <section>
+      <p>Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.</p>
+      <input id="e19-input" type="text" placeholder="Correo electrónico">
+      <input id="e19-button" type="button" value="Enviar">
+      <p id="e19-result">Esperando...</p>
     </section>
   </body>
 </html>

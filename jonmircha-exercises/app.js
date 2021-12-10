@@ -12,7 +12,9 @@ import {
   isCousinPrime,
   binaryToDecimal,
   decimalToBinary,
-  isBinary
+  isBinary,
+  howMuchTimeHasPassed,
+  countVowelsAndConsonants
 } from "./classes-methods/input-output-manipulation.js";
 //to study
 const appearOptions = {
@@ -232,5 +234,26 @@ document.getElementById("e3-button-separate").addEventListener("click", function
 
       //Decimal to Binary case
       if(e15SelectObj.value == "Decimal a Binario")  modifyHTMLValue(e15ResultId, decimalToBinary(e15InputObj.value), "green");
+  });
+}
+//Exercise 17
+{
+  let e17Button = getObj("e17-button"),
+  e17InputYear = getObj("e17-input-year"),
+  e17InputMonth = getObj("e17-input-month"),
+  e17InputDay = getObj("e17-input-day");
+
+  e17Button.addEventListener("click", () => {
+    modifyHTMLValue("e17-result", howMuchTimeHasPassed(e17InputYear.value, e17InputMonth.value, e17InputDay.value), "green");
+  }
+  );  
+}
+//Exercise 18
+{
+  let e18ButtonObj = getObj("e18-button"),
+  e18InputObj = getObj("e18-input");
+  
+  e18ButtonObj.addEventListener("click", () => {
+    e18InputObj.value !== "" ? modifyHTMLValue("e18-result", countVowelsAndConsonants(e18InputObj.value), "green") : modifyHTMLValue("e18-result", "Ingresa una cadena!", "red");
   });
 }
