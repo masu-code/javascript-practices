@@ -14,7 +14,9 @@ import {
   decimalToBinary,
   isBinary,
   howMuchTimeHasPassed,
-  countVowelsAndConsonants
+  countVowelsAndConsonants,
+  validatesEmail,
+  validatesName
 } from "./classes-methods/input-output-manipulation.js";
 //to study
 const appearOptions = {
@@ -255,5 +257,27 @@ document.getElementById("e3-button-separate").addEventListener("click", function
   
   e18ButtonObj.addEventListener("click", () => {
     e18InputObj.value !== "" ? modifyHTMLValue("e18-result", countVowelsAndConsonants(e18InputObj.value), "green") : modifyHTMLValue("e18-result", "Ingresa una cadena!", "red");
+  });
+}
+//Exercise 19
+{
+  let e19ButtonObj = getObj("e19-button"),
+  e19InputObj = getObj("e19-input");
+  
+  e19ButtonObj.addEventListener("click", () =>{
+    validatesName(e19InputObj.value) 
+    ? modifyHTMLValue("e19-result", validatesName(e19InputObj.value), "green") 
+    : modifyHTMLValue("e19-result", validatesName(e19InputObj.value), "red");
+  });
+}
+//Exercise 20
+{
+  let e20ButtonObj = getObj("e20-button"),
+  e20InputObj = getObj("e20-input");
+
+  e20ButtonObj.addEventListener("click", () =>{
+    validatesEmail(e20InputObj.value) 
+    ? modifyHTMLValue("e20-result", validatesEmail(e20InputObj.value), "green") 
+    : modifyHTMLValue("e20-result", validatesEmail(e20InputObj.value), "red");
   });
 }
