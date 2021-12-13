@@ -114,3 +114,24 @@ export let countVowelsAndConsonants = text =>{
     consonantsCount =  consonantsObj !== null ? consonantsObj.length : 0;
     return `Número de vocales: ${vowelsCount}, número de consonantes: ${consonantsCount}`;
 }
+
+export let addElementsToArray = (inputObj, index, arr) =>{
+  let inputValue = inputObj.value;
+  arr[index] = inputValue;
+  return arr;
+}
+
+export let toSeparateByoddEven = arr =>{
+  let num = {
+    even: [],
+    odd: []
+  }
+
+  arr.forEach(element =>{
+    element % 2 == 0
+    ? num.even.push(element) 
+    : num.odd.push(element);
+  });
+  
+  return num;
+}

@@ -16,7 +16,9 @@ import {
   howMuchTimeHasPassed,
   countVowelsAndConsonants,
   validatesEmail,
-  validatesName
+  validatesName,
+  addElementsToArray,
+  toSeparateByoddEven
 } from "./classes-methods/input-output-manipulation.js";
 //to study
 const appearOptions = {
@@ -275,9 +277,51 @@ document.getElementById("e3-button-separate").addEventListener("click", function
   let e20ButtonObj = getObj("e20-button"),
   e20InputObj = getObj("e20-input");
 
+
   e20ButtonObj.addEventListener("click", () =>{
     validatesEmail(e20InputObj.value) 
     ? modifyHTMLValue("e20-result", validatesEmail(e20InputObj.value), "green") 
     : modifyHTMLValue("e20-result", validatesEmail(e20InputObj.value), "red");
   });
 }
+//Exercise 23
+{
+  let e23InputObj = getObj("e23-input"),
+  e23ButtonAddObj = getObj("e23-button-add"),
+  e23ButtonEvaluateObj = getObj("e23-button-evaluate"),
+  index = 0,
+  arr = [],
+  numObj;
+
+  e23ButtonAddObj.addEventListener("click", ()=>{
+    arr = addElementsToArray(e23InputObj, index++, arr);
+    e23InputObj.focus();
+    e23InputObj.value = "";
+  });
+
+  e23ButtonEvaluateObj.addEventListener("click", ()=>{
+    numObj = toSeparateByoddEven(arr);
+    modifyHTMLValue("e23-result", `Estos son tus números pares: ${numObj.even} <br>
+    Estos son tus números impares: ${numObj.odd}`);
+    console.log(numObj);
+  });
+}
+
+//Exercise 24
+{
+  let e24InputObj = getObj("e24-input"),
+  e24ButtonAddObj = getObj("e24-button-add"),
+  e24ButtonSortObj = getObj("e24-button-evaluate"),
+  index = 0,
+  arr = [],
+  numObj;
+
+  e24ButtonAddObj.addEventListener("click", ()=>{
+    if(e24InputObj.value != "") arr = addElementsToArray(e24InputObj, index++, arr);
+    e24InputObj.focus();
+    e24InputObj.value = "";
+  });
+
+  e24ButtonSortObj.addEventListener("click", ()=>{
+    modifyHTMLValue("e24-result", `En orden ascendente: ${arr.sort((a, b)=>a-b)} <br> En orden descendente: ${arr.sort((a, b)=>b-a)}`);
+  });}
