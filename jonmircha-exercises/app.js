@@ -313,8 +313,7 @@ document.getElementById("e3-button-separate").addEventListener("click", function
   e24ButtonAddObj = getObj("e24-button-add"),
   e24ButtonSortObj = getObj("e24-button-evaluate"),
   index = 0,
-  arr = [],
-  numObj;
+  arr = [];
 
   e24ButtonAddObj.addEventListener("click", ()=>{
     if(e24InputObj.value != "") arr = addElementsToArray(e24InputObj, index++, arr);
@@ -324,4 +323,23 @@ document.getElementById("e3-button-separate").addEventListener("click", function
 
   e24ButtonSortObj.addEventListener("click", ()=>{
     modifyHTMLValue("e24-result", `En orden ascendente: ${arr.sort((a, b)=>a-b)} <br> En orden descendente: ${arr.sort((a, b)=>b-a)}`);
-  });}
+  });
+}
+//Exercise 25
+{
+  let e25InputObj = getObj("e25-input"),
+  e25ButtonAddObj = getObj("e25-button-add"),
+  e25ButtonSortObj = getObj("e25-button-evaluate"),
+  index = 0,
+  arr = [];
+
+  e25ButtonAddObj.addEventListener("click", ()=>{
+    if(e25InputObj.value != "") arr = addElementsToArray(e25InputObj, index++, arr);
+    e25InputObj.focus();
+    e25InputObj.value = "";
+  });
+
+  e25ButtonSortObj.addEventListener("click", ()=>{
+    modifyHTMLValue("e25-result", arr.filter((element, index)=> arr.indexOf(element) === index), "green");
+  });
+}
