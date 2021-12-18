@@ -432,9 +432,7 @@ document.getElementById("e3-button-separate").addEventListener("click", function
     let htmlCollection = document.getElementsByClassName("genre"),
     genreArr = [];
     for(let el of htmlCollection) el.addEventListener("click", () =>{
-      if(el.chec)
-      genreArr.push(el.id);
-      console.log(genreArr);
+      console.log(Movie.getGenres(htmlCollection));
     });
 
    finalButtonObj.addEventListener("click", ()=>{

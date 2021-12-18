@@ -160,6 +160,15 @@ export let Movie = class{
    static validatesBasicName = director => /[a-zA-Z]{1,50}/.test(director);
    static validatesCountry = country => /^[a-zA-Z\ ]{1,50}$/.test(country);
    static validatesYear = year => year > 999 && year <= Movie.currentYear;
+   static getGenres = collection =>{
+     let selectedGenres = [];
+     for(let el of collection){
+       if(el.checked){
+         selectedGenres.push(el.id);
+       }
+     }
+     return selectedGenres;
+   }
 }
 
 
