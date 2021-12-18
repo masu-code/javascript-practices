@@ -16,7 +16,7 @@
       texto, pe. miFuncion("Hola Mundo") devolverá 10.
     </p>
     <form onSubmit="return false;" autocomplete="off">
-      <label for="e1-input-text"><p>Introduzca una cadena de texto y presione 'ENTER'</p></label>
+      <label for="e1-input-text">Introduzca una cadena de texto y presione 'ENTER'</label> <br>
       <input type="text" id="e1-input-text" placeholder="Cadena de texto"/>
     </form>
     <p class="inline">Resultado:</p> <p id="e1-p-result" class="inline">0</p>
@@ -27,7 +27,7 @@
       <h1> Ejercicio 2</h1>
       <p>Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".</p>
       <form onSubmit="return false;" autocomplete="off">
-      <label for="input-n-2"><p>Introduzca ua cadena de texto y cuanto quiere cortarla!</p></label>
+      <label for="input-n-2"><p>Introduzca una cadena de texto y cuanto quiere cortarla!</p></label>
       <input type="text" id="e2-input-text" placeholder="Cadena de texto"/>
       <input type="number" id="e2-input-number" placeholder="Número" min="0">
       <input type="button" id="e2-button-cut" value="Cortar">
@@ -124,7 +124,7 @@
         </select>
         <input type="button" value="Transformar" id="e15-button">
       </form>
-      <p id="e15-result">Esperando...</p>
+      <p id="e15-result">Esperando...</p> 
     </section>
     <section> <!-- SEVENTEENTH EXERCISE -->
       <h1>Ejercicio 17</h1>
@@ -187,6 +187,243 @@
         <input type="button" value="Evaluar" id="e25-button-evaluate">
       </form>
       <p id="e25-result">Esperando...</p>
+    </section>
+    <section> <!-- FINAL EXERCISE -->
+      <h1>Ejercicio 27 (final) </h1>
+      <p>Programa una clase llamada Pelicula.</p>
+      <p>La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+        <ul>
+          <li>Todos los datos del objeto son obligatorios. ✔️</li>
+          <li>Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
+            7 restantes números. ✔️</li>
+            <li>Valida que el título no rebase los 100 caracteres. ✔️</li>
+            <li>Valida que el director no rebase los 50 caracteres. ✔️</li>
+            <li>Valida que el año de estreno sea un número entero de 4 dígitos. ✔️</li>
+            <li>Valida que el país o paises sea introducidos en forma de arreglo. ✔️</li>
+            <li>Valida que los géneros sean introducidos en forma de arreglo.</li>
+            <li>Valida que los géneros introducidos esten dentro de los géneros aceptados</li>
+            <li>Crea un método estático que devuelva los géneros aceptados</li>
+            <li>Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
+              decimal de una posición.</li>
+            <li>Crea un método que devuelva toda la ficha técnica de la película.</li>
+            <li>Apartir de un arreglo con la información de 3 películas genera 3 
+              instancias de la clase de forma automatizada e imprime la ficha técnica 
+              de cada película.</li>
+        </ul> 
+        <p>Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.</p>
+        <h2>Introduce los datos solicitador para tu película, presiona 'ENTER' para evaluar</h2>
+        <p class="warning">Advertencia: todos los datos son obligatorios.</p>
+        <form onSubmit="return false;" autocomplete="off" id="last-form">
+          <!-- ID SECTION -->
+          <label for="input-id">Introduce el ID de la película en IMDB</label><br>
+          <input type="text" id="input-id" placeholder="Ej: sv742165792">
+          <output id="output-id">Esperando...</output><br>
+          <!-- TITLE SECTION -->
+          <label for="input-title">Introduce el título de la película</label><br>
+          <input type="text" id="input-title" placeholder="Ej: El padrino">
+          <output id="output-title">Esperando...</output><br>
+          <!-- DIRECTOR SECTION -->
+          <label for="input-director">Introduce el director de la película</label><br>
+          <input type="text" id="input-director" placeholder="Ej: Steven Spielberg">
+          <output id="output-director">Esperando...</output><br>
+          <!-- YEAR SECTION -->
+        <label for="input-year">Introduce el año de estreno de la película (número de 4 dígitos)</label><br>
+        <input type="number" id="input-year" placeholder="Ej: 2004">
+        <output id="output-year">Esperando...</output><br>
+        </form>  
+        <!-- COUNTRY SECTION -->
+        <label for="input-country">Introduce los países de origen de origen de la película. Presiona 'ENTER' para validarlos y posteriormente guardarlos en una array</label><br>
+        <input type="text" id="input-country" placeholder="Ej: Estados Unidos">
+        <output id="country-output">Esperando...</output> <br>
+        <output>Tus países:</output><br>
+        <ul id="country-ul">
+        </ul>
+        <!-- GENDER SECTION -->
+        <h2>Ingresa los géneros correspondientes de la película</h2>
+        <table id="genres-table">
+          <!-- FIRST ROW -->
+          <tr>
+            <td>
+              <label for="action">
+                <input type="checkbox" class="genre" class="genre" id="action">
+                Action
+              </label>
+            </td>
+            <td>
+              <label for="adult">
+                <input type="checkbox" class="genre" class="genre" id="adult">
+                Adult
+              </label>
+              </td>
+              <td>
+                <label for="adventure">
+                  <input type="checkbox" class="genre" id="adventure">
+                  Adventure
+                </label>
+                </td>
+              <td>
+              <label for="animation">
+                <input type="checkbox" class="genre" id="animation">
+                Animation
+              </label>
+            </td>
+            <td>
+              <label for="biography">
+                <input type="checkbox" class="genre" id="biography">
+                Biography
+              </label>
+            </td>
+            <td>
+              <label for="comedy">
+                <input type="checkbox" class="genre" id="comedy">
+                Comedy
+              </label>
+            </td>
+            <td>
+              <label for="crime">
+                <input type="checkbox" class="genre" id="crime">
+                Crime
+              </label>
+            </td>
+          </tr> 
+          <!-- SECOND ROW -->
+          <tr>
+            <td>
+              <label for="documentary">
+                <input type="checkbox" class="genre" id="documentary">
+                Documentary
+              </label>
+            </td>
+            <td>
+              <label for="drama">
+                <input type="checkbox" class="genre" id="drama">
+                Drama
+              </label>
+            </td>
+            <td>
+              <label for="family">
+                <input type="checkbox" class="genre" id="family">
+                Family
+              </label>
+            </td>
+            <td>
+              <label for="fantasy">
+                <input type="checkbox" class="genre" id="fantasy">
+                Fantasy
+              </label>
+            </td>
+            <td>
+              <label for="film-noir">
+                <input type="checkbox" class="genre" id="film-noir">
+                Film Noir
+              </label>
+            </td>
+            <td>
+              <label for="game-show">
+                <input type="checkbox" class="genre" id="game-show">
+                Game Show
+              </label>
+            </td>
+            <td>  
+                <label for="history">
+                  <input type="checkbox" class="genre" id="history">
+                  History
+                </label>
+            </td>
+          </tr>
+          <!-- THIRD ROW -->
+          <tr>
+            <td>
+              <label for="horror">
+                <input type="checkbox" class="genre" id="horror">
+                Horror
+              </label>
+            </td>
+            <td>
+              <label for="musical">
+                <input type="checkbox" class="genre" id="musical">
+                Musical
+              </label>
+            </td>
+            <td>
+              <label for="mistery">
+                <input type="checkbox" class="genre" id="mistery">
+                Mistery
+              </label>
+            </td>
+            <td>
+              <label for="news">
+                <input type="checkbox" class="genre" id="news">
+                News
+              </label>
+            </td>
+            <td>
+              <label for="reality-tv">
+                <input type="checkbox" class="genre" id="reality-tv">
+                Reality TV
+              </label>            
+            </td>
+            <td>
+              <label for="romance">
+                <input type="checkbox" class="genre" id="romance">
+                Romance
+              </label>
+            </td>
+            <td>
+              <label for="sci-fi">
+                <input type="checkbox" class="genre" id="sci-fi">
+                Sci-Fi
+              </label>
+            </td>
+          </tr>
+          <!-- FOURTH ROW -->
+          <tr>
+            <td>
+              <label for="shorts">
+                <input type="checkbox" class="genre" id="shorts">
+                Shorts
+              </label>
+            </td>
+            <td>
+              <label for="sport">
+                <input type="checkbox" class="genre" id="sport">
+                Sport
+              </label>
+            </td>
+            <td>
+              <label for="talk-show">
+                <input type="checkbox" class="genre" id="talk-show">
+                Talk-Show
+              </label>
+            </td>
+            <td>
+              <label for="thriller">
+                <input type="checkbox" class="genre" id="thriller">
+                Thriller
+              </label>
+            </td>
+            <td>
+              <label for="war">
+                <input type="checkbox" class="genre" id="war">
+                War
+              </label>
+            </td>
+            <td>
+              <label for="western">
+                <input type="checkbox" class="genre" id="western">
+                Western
+              </label>
+            </td>
+            <td>
+              <label for="music">
+                <input type="checkbox" class="genre" id="music">
+                Music
+              </label>
+            </td>
+          </tr>
+        </table>
+
+        <input type="button" value="validar" id="final-button">
     </section>
   </body>
 </html>

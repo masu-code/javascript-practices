@@ -18,7 +18,9 @@ import {
   validatesEmail,
   validatesName,
   addElementsToArray,
-  toSeparateByoddEven
+  toSeparateByoddEven,
+  Movie,
+  printElementsAsList
 } from "./classes-methods/input-output-manipulation.js";
 //to study
 const appearOptions = {
@@ -342,4 +344,100 @@ document.getElementById("e3-button-separate").addEventListener("click", function
   e25ButtonSortObj.addEventListener("click", ()=>{
     modifyHTMLValue("e25-result", arr.filter((element, index)=> arr.indexOf(element) === index), "green");
   });
+}
+//Exercise 27 - FINAL EXERCISE!!
+{
+  //VARIABLES
+    //Id variables section
+    let inputIdObj = getObj("input-id"),
+    inputTitleObj = getObj("input-title"),
+    inputDirectorObj = getObj("input-director"),
+    inputYearObj = getObj("input-year"),
+    inputCountryObj = getObj("input-country"),
+    countryArr = [],
+    countryUlObj = getObj("country-ul"),
+    countryName;
+    
+    //Validations booleans
+    let validations = {
+      id: false,
+      title: false,
+      director: false,
+      year: false,
+      country: false,
+    }
+    //button section
+    let finalButtonObj = getObj("final-button");
+
+  //BEHAVIOUR SECTION
+    //Id section
+   inputIdObj.addEventListener("keypress", event =>{
+    if (event.key !== "Enter") return;
+    if (!Movie.validatesId(inputIdObj.value)) return modifyHTMLValue("output-id", "Id inválido ❌");
+    modifyHTMLValue("output-id", "Id válido ✔️");
+    validations.id = true;
+    inputTitleObj.focus();
+    }
+   );
+    //Title section
+    inputTitleObj.addEventListener("keypress", event =>{
+      if(event.key !== "Enter") return;
+      if(!Movie.validatesTitle(inputTitleObj.value)) return modifyHTMLValue("output-title", "Título inválido ❌");
+      modifyHTMLValue("output-title", "Título válido ✔️");
+      validations.title = true;
+      inputDirectorObj.focus();
+    });
+     //Director section
+    inputDirectorObj.addEventListener("keypress", event =>{
+      if(event.key !== "Enter") return;
+      if(!Movie.validatesBasicName(inputDirectorObj.value)) return modifyHTMLValue("output-director", "Director inválido ❌");
+      modifyHTMLValue("output-director", "Director válido ✔️");
+      validations.director = true;
+      inputYearObj.focus();
+    });
+    //Year section
+    inputYearObj.addEventListener("keypress", event =>{
+      if(event.key !== "Enter") return;
+      if(!Movie.validatesYear(inputYearObj.value)) return modifyHTMLValue("output-year", "Año inválido ❌");
+      modifyHTMLValue("output-year", "Año válido ✔️");
+      validations.year = true;
+      inputCountryObj.focus();
+    });
+    //Country section
+    inputCountryObj.addEventListener("keypress", event =>{
+      //validates the key
+      if(event.key !== "Enter") return;          
+       //validates is not empty               
+      if(!inputCountryObj.value) return;    
+      //Transform to lowercase
+      countryName = inputCountryObj.value.toLowerCase();
+      //validates is a valid name                   
+      if(!Movie.validatesCountry(countryName)) {
+        inputCountryObj.value = "";
+        return modifyHTMLValue("country-output", "Inválido ❌"); 
+      }
+      //validates if is not repeated
+      if(countryArr.includes(countryName)) {
+        inputCountryObj.value = "";
+        return modifyHTMLValue("country-output", "Nombre repetido ❌");
+      }
+      //If everything is ok =>
+        countryArr.push(countryName);
+        printElementsAsList(countryName, countryUlObj);
+        inputCountryObj.value = "";
+        modifyHTMLValue("country-output", "Válido ✔️");
+        console.log(countryArr);
+      });
+    //Genres section -table-
+    let htmlCollection = document.getElementsByClassName("genre"),
+    genreArr = [];
+    for(let el of htmlCollection) el.addEventListener("click", () =>{
+      if(el.chec)
+      genreArr.push(el.id);
+      console.log(genreArr);
+    });
+
+   finalButtonObj.addEventListener("click", ()=>{
+
+   });
 }

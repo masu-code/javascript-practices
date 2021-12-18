@@ -57,6 +57,13 @@ export let printObjProperties = (obj, idResult) => {
   p.innerHTML = "";                                 //Reset the p value, this is to print the output always in the same line!
 }
 
+export let printElementsAsList = (element, ulObj) => {      //outputId is the element where we'll are adding new child elements
+  let value = document.createTextNode(element),
+  list = document.createElement("li");
+  list.appendChild(value);
+  ulObj.appendChild(list);
+}
+
 export let getFactorial = number =>{
   let result = 1;
   if(number == 1) return result;          //validates if the number is 1
@@ -115,9 +122,8 @@ export let countVowelsAndConsonants = text =>{
     return `Número de vocales: ${vowelsCount}, número de consonantes: ${consonantsCount}`;
 }
 
-export let addElementsToArray = (inputObj, index, arr) =>{
-  let inputValue = inputObj.value;
-  arr[index] = inputValue;
+export let addElementsToArray = (value, index, arr) =>{
+  arr[index] = value;
   return arr;
 }
 
@@ -135,3 +141,26 @@ export let toSeparateByoddEven = arr =>{
   
   return num;
 }
+//Last exercise!!!
+export let Movie = class{
+  constructor(id, title, director, year, country, gender, qualification){
+    this.id = id;
+    this.title = title;
+    this.director = director;
+    this.year = year;
+    this.country = country;
+    this.gender = gender;
+    this.qualification = qualification;
+  }
+  static currentYear = new Date().getFullYear();
+  acceptedGenres = ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary" ,"Drama", "Family", "Fantasy", "Film Noir", "Game-Show", "History", "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"];
+  //Last exercise validations
+   static validatesId = id => /^[a-z]{2}\d{7}$/.test(id);
+   static validatesTitle = title => /\w{1,100}/.test(title);
+   static validatesBasicName = director => /[a-zA-Z]{1,50}/.test(director);
+   static validatesCountry = country => /^[a-zA-Z\ ]{1,50}$/.test(country);
+   static validatesYear = year => year > 999 && year <= Movie.currentYear;
+}
+
+
+
