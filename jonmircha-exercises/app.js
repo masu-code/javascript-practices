@@ -20,7 +20,7 @@ import {
   addElementsToArray,
   toSeparateByoddEven,
   Movie,
-  printElementsAsList
+  printElementsAsList,
 } from "./classes-methods/input-output-manipulation.js";
 //to study
 const appearOptions = {
@@ -365,6 +365,8 @@ document.getElementById("e3-button-separate").addEventListener("click", function
       director: false,
       year: false,
       country: false,
+      genre: false,
+      qualification: false
     }
     //button section
     let finalButtonObj = getObj("final-button");
@@ -426,16 +428,38 @@ document.getElementById("e3-button-separate").addEventListener("click", function
         printElementsAsList(countryName, countryUlObj);
         inputCountryObj.value = "";
         modifyHTMLValue("country-output", "Válido ✔️");
-        console.log(countryArr);
+        validations.country = true;
       });
     //Genres section -table-
     let htmlCollection = document.getElementsByClassName("genre"),
-    genreArr = [];
+    genresArr = [];
     for(let el of htmlCollection) el.addEventListener("click", () =>{
-      console.log(Movie.getGenres(htmlCollection));
+      if(htmlCollection)
+      genresArr = Movie.getGenres(htmlCollection);
+      validations.genre = genresArr != "";
     });
-
-   finalButtonObj.addEventListener("click", ()=>{
-
+    //qualification section
+    let qualificationObj = getObj("input-qualification");
+    qualificationObj.addEventListener("keypress", event =>{
+      if(event.key !== "Enter") return;
+      if(!qualificationObj.value) return modifyHTMLValue("qualification-output", "Tienes que llenar la casilla ❌");
+      if(!Movie.validatesQualification(qualificationObj.value)) return modifyHTMLValue("qualification-output", "Calificación inválida ❌");
+      modifyHTMLValue("qualification-output", "Calificación válida ✔️");
+      validations.qualification = true;
+      finalButtonObj.focus();
+    });
+    //film data sheet
+    let fOutput = getObj("final-output"),
+    movie;
+    finalButtonObj.addEventListener("click", ()=>{
+    for(let el in validations){
+      if(validations[el] === false){
+        console.log(el);
+        return fOutput.innerHTML = "Te faltan datos por rellenar";
+        
+      }
+    }
+      movie = new Movie(inputIdObj.value, inputTitleObj.value, inputDirectorObj.value, inputYearObj.value, countryArr, genresArr, qualificationObj.value);
+      movie.printDataSheet(fOutput);
    });
 }

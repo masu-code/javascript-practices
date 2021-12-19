@@ -143,23 +143,25 @@ export let toSeparateByoddEven = arr =>{
 }
 //Last exercise!!!
 export let Movie = class{
-  constructor(id, title, director, year, country, gender, qualification){
+  constructor(id, title, director, year, country, genres, qualification){
     this.id = id;
     this.title = title;
     this.director = director;
     this.year = year;
     this.country = country;
-    this.gender = gender;
+    this.genres = genres;
     this.qualification = qualification;
   }
   static currentYear = new Date().getFullYear();
-  acceptedGenres = ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary" ,"Drama", "Family", "Fantasy", "Film Noir", "Game-Show", "History", "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"];
+  static getAcceptedGenres = () => ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary" ,"Drama", "Family", "Fantasy", "Film Noir", "Game-Show", "History", "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"];
+  
   //Last exercise validations
    static validatesId = id => /^[a-z]{2}\d{7}$/.test(id);
    static validatesTitle = title => /\w{1,100}/.test(title);
    static validatesBasicName = director => /[a-zA-Z]{1,50}/.test(director);
    static validatesCountry = country => /^[a-zA-Z\ ]{1,50}$/.test(country);
    static validatesYear = year => year > 999 && year <= Movie.currentYear;
+   static validatesQualification = q => q >= 1 && q <= 10 && /^\d{1,2}(\.\d{1,2})?$/.test(q);
    static getGenres = collection =>{
      let selectedGenres = [];
      for(let el of collection){
@@ -169,6 +171,21 @@ export let Movie = class{
      }
      return selectedGenres;
    }
+   printDataSheet = output =>{
+    output.appendChild(document.createTextNode(`ID: ${this.id}`));
+    output.appendChild(document.createElement("br"));
+    output.appendChild(document.createTextNode(`Título: ${this.title}`));
+    output.appendChild(document.createElement("br"));
+    output.appendChild(document.createTextNode(`Director: ${this.director}`));
+    output.appendChild(document.createElement("br"));
+    output.appendChild(document.createTextNode(`Año: ${this.year}`));
+    output.appendChild(document.createElement("br"));
+    output.appendChild(document.createTextNode(`Paises: ${this.country}`));
+    output.appendChild(document.createElement("br"));
+    output.appendChild(document.createTextNode(`Géneros: ${this.genres}`));
+    output.appendChild(document.createElement("br"));
+    output.appendChild(document.createTextNode(`Calificación: ${this.qualification}`));
+   } 
 }
 
 

@@ -200,9 +200,9 @@
             <li>Valida que el director no rebase los 50 caracteres. ✔️</li>
             <li>Valida que el año de estreno sea un número entero de 4 dígitos. ✔️</li>
             <li>Valida que el país o paises sea introducidos en forma de arreglo. ✔️</li>
-            <li>Valida que los géneros sean introducidos en forma de arreglo.</li>
-            <li>Valida que los géneros introducidos esten dentro de los géneros aceptados</li>
-            <li>Crea un método estático que devuelva los géneros aceptados</li>
+            <li>Valida que los géneros sean introducidos en forma de arreglo. ✔️</li>
+            <li>Valida que los géneros introducidos esten dentro de los géneros aceptados ✔️</li>
+            <li>Crea un método estático que devuelva los géneros aceptados ✔️</li>
             <li>Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
               decimal de una posición.</li>
             <li>Crea un método que devuelva toda la ficha técnica de la película.</li>
@@ -239,7 +239,7 @@
         <ul id="country-ul">
         </ul>
         <!-- GENDER SECTION -->
-        <h2>Ingresa los géneros correspondientes de la película</h2>
+        <label for="genres-table">Selecciona los géneros de la película</label>
         <table id="genres-table">
           <!-- FIRST ROW -->
           <tr>
@@ -258,7 +258,7 @@
               <td>
                 <label for="adventure">
                   <input type="checkbox" class="genre" id="adventure">
-                  Adventure
+                  Adventure|
                 </label>
                 </td>
               <td>
@@ -422,8 +422,12 @@
             </td>
           </tr>
         </table>
-
-        <input type="button" value="validar" id="final-button">
+        <label for="qualification">Ingresa la califación de la película. Número del 1 al 10 de máximo dos dígitos.</label> <br>
+        <input type="number" id="input-qualification" placeholder="Ej: 3.27" min="1" max="10" step="0.01"> <output id="qualification-output">Esperando...</output><br>
+        <!-- PRINT THE FILM DATA SHEET -->
+        <h2>Ficha técnica</h2>
+        <input type="button" value="Imprirmir toda la ficha técnica!" id="final-button"> <br>
+        <p id="final-output"></p>
     </section>
   </body>
 </html>
