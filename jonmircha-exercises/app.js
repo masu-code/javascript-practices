@@ -12,7 +12,15 @@ import {
   isCousinPrime,
   binaryToDecimal,
   decimalToBinary,
-  isBinary
+  isBinary,
+  howMuchTimeHasPassed,
+  countVowelsAndConsonants,
+  validatesEmail,
+  validatesName,
+  addElementsToArray,
+  toSeparateByoddEven,
+  Movie,
+  printElementsAsList,
 } from "./classes-methods/input-output-manipulation.js";
 //to study
 const appearOptions = {
@@ -233,4 +241,225 @@ document.getElementById("e3-button-separate").addEventListener("click", function
       //Decimal to Binary case
       if(e15SelectObj.value == "Decimal a Binario")  modifyHTMLValue(e15ResultId, decimalToBinary(e15InputObj.value), "green");
   });
+}
+//Exercise 17
+{
+  let e17Button = getObj("e17-button"),
+  e17InputYear = getObj("e17-input-year"),
+  e17InputMonth = getObj("e17-input-month"),
+  e17InputDay = getObj("e17-input-day");
+
+  e17Button.addEventListener("click", () => {
+    modifyHTMLValue("e17-result", howMuchTimeHasPassed(e17InputYear.value, e17InputMonth.value, e17InputDay.value), "green");
+  }
+  );  
+}
+//Exercise 18
+{
+  let e18ButtonObj = getObj("e18-button"),
+  e18InputObj = getObj("e18-input");
+  
+  e18ButtonObj.addEventListener("click", () => {
+    e18InputObj.value !== "" ? modifyHTMLValue("e18-result", countVowelsAndConsonants(e18InputObj.value), "green") : modifyHTMLValue("e18-result", "Ingresa una cadena!", "red");
+  });
+}
+//Exercise 19
+{
+  let e19ButtonObj = getObj("e19-button"),
+  e19InputObj = getObj("e19-input");
+  
+  e19ButtonObj.addEventListener("click", () =>{
+    validatesName(e19InputObj.value) 
+    ? modifyHTMLValue("e19-result", validatesName(e19InputObj.value), "green") 
+    : modifyHTMLValue("e19-result", validatesName(e19InputObj.value), "red");
+  });
+}
+//Exercise 20
+{
+  let e20ButtonObj = getObj("e20-button"),
+  e20InputObj = getObj("e20-input");
+
+
+  e20ButtonObj.addEventListener("click", () =>{
+    validatesEmail(e20InputObj.value) 
+    ? modifyHTMLValue("e20-result", validatesEmail(e20InputObj.value), "green") 
+    : modifyHTMLValue("e20-result", validatesEmail(e20InputObj.value), "red");
+  });
+}
+//Exercise 23
+{
+  let e23InputObj = getObj("e23-input"),
+  e23ButtonAddObj = getObj("e23-button-add"),
+  e23ButtonEvaluateObj = getObj("e23-button-evaluate"),
+  index = 0,
+  arr = [],
+  numObj;
+
+  e23ButtonAddObj.addEventListener("click", ()=>{
+    arr = addElementsToArray(e23InputObj, index++, arr);
+    e23InputObj.focus();
+    e23InputObj.value = "";
+  });
+
+  e23ButtonEvaluateObj.addEventListener("click", ()=>{
+    numObj = toSeparateByoddEven(arr);
+    modifyHTMLValue("e23-result", `Estos son tus números pares: ${numObj.even} <br>
+    Estos son tus números impares: ${numObj.odd}`);
+    console.log(numObj);
+  });
+}
+
+//Exercise 24
+{
+  let e24InputObj = getObj("e24-input"),
+  e24ButtonAddObj = getObj("e24-button-add"),
+  e24ButtonSortObj = getObj("e24-button-evaluate"),
+  index = 0,
+  arr = [];
+
+  e24ButtonAddObj.addEventListener("click", ()=>{
+    if(e24InputObj.value != "") arr = addElementsToArray(e24InputObj, index++, arr);
+    e24InputObj.focus();
+    e24InputObj.value = "";
+  });
+
+  e24ButtonSortObj.addEventListener("click", ()=>{
+    modifyHTMLValue("e24-result", `En orden ascendente: ${arr.sort((a, b)=>a-b)} <br> En orden descendente: ${arr.sort((a, b)=>b-a)}`);
+  });
+}
+//Exercise 25
+{
+  let e25InputObj = getObj("e25-input"),
+  e25ButtonAddObj = getObj("e25-button-add"),
+  e25ButtonSortObj = getObj("e25-button-evaluate"),
+  index = 0,
+  arr = [];
+
+  e25ButtonAddObj.addEventListener("click", ()=>{
+    if(e25InputObj.value != "") arr = addElementsToArray(e25InputObj, index++, arr);
+    e25InputObj.focus();
+    e25InputObj.value = "";
+  });
+
+  e25ButtonSortObj.addEventListener("click", ()=>{
+    modifyHTMLValue("e25-result", arr.filter((element, index)=> arr.indexOf(element) === index), "green");
+  });
+}
+//Exercise 27 - FINAL EXERCISE!!
+{
+  //VARIABLES
+    //Id variables section
+    let inputIdObj = getObj("input-id"),
+    inputTitleObj = getObj("input-title"),
+    inputDirectorObj = getObj("input-director"),
+    inputYearObj = getObj("input-year"),
+    inputCountryObj = getObj("input-country"),
+    countryArr = [],
+    countryUlObj = getObj("country-ul"),
+    countryName;
+    
+    //Validations booleans
+    let validations = {
+      id: false,
+      title: false,
+      director: false,
+      year: false,
+      country: false,
+      genre: false,
+      qualification: false
+    }
+    //button section
+    let finalButtonObj = getObj("final-button");
+
+  //BEHAVIOUR SECTION
+    //Id section
+   inputIdObj.addEventListener("keypress", event =>{
+    if (event.key !== "Enter") return;
+    if (!Movie.validatesId(inputIdObj.value)) return modifyHTMLValue("output-id", "Id inválido ❌");
+    modifyHTMLValue("output-id", "Id válido ✔️");
+    validations.id = true;
+    inputTitleObj.focus();
+    }
+   );
+    //Title section
+    inputTitleObj.addEventListener("keypress", event =>{
+      if(event.key !== "Enter") return;
+      if(!Movie.validatesTitle(inputTitleObj.value)) return modifyHTMLValue("output-title", "Título inválido ❌");
+      modifyHTMLValue("output-title", "Título válido ✔️");
+      validations.title = true;
+      inputDirectorObj.focus();
+    });
+     //Director section
+    inputDirectorObj.addEventListener("keypress", event =>{
+      if(event.key !== "Enter") return;
+      if(!Movie.validatesBasicName(inputDirectorObj.value)) return modifyHTMLValue("output-director", "Director inválido ❌");
+      modifyHTMLValue("output-director", "Director válido ✔️");
+      validations.director = true;
+      inputYearObj.focus();
+    });
+    //Year section
+    inputYearObj.addEventListener("keypress", event =>{
+      if(event.key !== "Enter") return;
+      if(!Movie.validatesYear(inputYearObj.value)) return modifyHTMLValue("output-year", "Año inválido ❌");
+      modifyHTMLValue("output-year", "Año válido ✔️");
+      validations.year = true;
+      inputCountryObj.focus();
+    });
+    //Country section
+    inputCountryObj.addEventListener("keypress", event =>{
+      //validates the key
+      if(event.key !== "Enter") return;          
+       //validates is not empty               
+      if(!inputCountryObj.value) return;    
+      //Transform to lowercase
+      countryName = inputCountryObj.value.toLowerCase();
+      //validates is a valid name                   
+      if(!Movie.validatesCountry(countryName)) {
+        inputCountryObj.value = "";
+        return modifyHTMLValue("country-output", "Inválido ❌"); 
+      }
+      //validates if is not repeated
+      if(countryArr.includes(countryName)) {
+        inputCountryObj.value = "";
+        return modifyHTMLValue("country-output", "Nombre repetido ❌");
+      }
+      //If everything is ok =>
+        countryArr.push(countryName);
+        printElementsAsList(countryName, countryUlObj);
+        inputCountryObj.value = "";
+        modifyHTMLValue("country-output", "Válido ✔️");
+        validations.country = true;
+      });
+    //Genres section -table-
+    let htmlCollection = document.getElementsByClassName("genre"),
+    genresArr = [];
+    for(let el of htmlCollection) el.addEventListener("click", () =>{
+      if(htmlCollection)
+      genresArr = Movie.getGenres(htmlCollection);
+      validations.genre = genresArr != "";
+    });
+    //qualification section
+    let qualificationObj = getObj("input-qualification");
+    qualificationObj.addEventListener("keypress", event =>{
+      if(event.key !== "Enter") return;
+      if(!qualificationObj.value) return modifyHTMLValue("qualification-output", "Tienes que llenar la casilla ❌");
+      if(!Movie.validatesQualification(qualificationObj.value)) return modifyHTMLValue("qualification-output", "Calificación inválida ❌");
+      modifyHTMLValue("qualification-output", "Calificación válida ✔️");
+      validations.qualification = true;
+      finalButtonObj.focus();
+    });
+    //film data sheet
+    let fOutput = getObj("final-output"),
+    movie;
+    finalButtonObj.addEventListener("click", ()=>{
+    for(let el in validations){
+      if(validations[el] === false){
+        console.log(el);
+        return fOutput.innerHTML = "Te faltan datos por rellenar";
+        
+      }
+    }
+      movie = new Movie(inputIdObj.value, inputTitleObj.value, inputDirectorObj.value, inputYearObj.value, countryArr, genresArr, qualificationObj.value);
+      movie.printDataSheet(fOutput);
+   });
 }

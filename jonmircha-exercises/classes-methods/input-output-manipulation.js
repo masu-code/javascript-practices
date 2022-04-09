@@ -10,6 +10,9 @@ export let reverseAText = text => text.split("").reverse().join("");
 export let isString = v => isNaN(v);
 export let getValue = id => document.getElementsByName(id).value;
 export let getRandom = (min, max) => Math.round((Math.random() * (max - min + 1)) + min);
+export let isBinary  = number => /^[01]+$/.test(number);
+export let validatesEmail = email =>   /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(email);
+export let validatesName = name => /^\w+ \w+$/.test(name);
 
 export let countWordsInAnArray = arr =>{
   let count,
@@ -54,6 +57,13 @@ export let printObjProperties = (obj, idResult) => {
   p.innerHTML = "";                                 //Reset the p value, this is to print the output always in the same line!
 }
 
+export let printElementsAsList = (element, ulObj) => {      //outputId is the element where we'll are adding new child elements
+  let value = document.createTextNode(element),
+  list = document.createElement("li");
+  list.appendChild(value);
+  ulObj.appendChild(list);
+}
+
 export let getFactorial = number =>{
   let result = 1;
   if(number == 1) return result;          //validates if the number is 1
@@ -96,4 +106,87 @@ export let decimalToBinary = (number) => {
   return result.replace(/,/g, "");
 }
 
-export let isBinary  = number => /^[01]+$/.test(number);
+export let howMuchTimeHasPassed =(year, month, day) =>{
+    let birthDayInMs = new Date(year, month - 1, day).getTime(),
+    yearsInMs = 1000 * 60 * 60 * 24 * 365,    //I need to divide the passed time in ms by this to get the time in years
+    currentTimeInMs = new Date().getTime(),
+    passedTime = currentTimeInMs - birthDayInMs; //To get the passed time in ms
+    return Math.floor(passedTime / yearsInMs);    //Return the rounded date :)
+}
+
+export let countVowelsAndConsonants = text =>{
+    let vowelsObj = text.match(/[aeiou]/g),
+    vowelsCount =  vowelsObj !== null ? vowelsObj.length : 0,
+    consonantsObj = text.match(/[bcdfghjklmnñpqrstvwxyz]/g),
+    consonantsCount =  consonantsObj !== null ? consonantsObj.length : 0;
+    return `Número de vocales: ${vowelsCount}, número de consonantes: ${consonantsCount}`;
+}
+
+export let addElementsToArray = (value, index, arr) =>{
+  arr[index] = value;
+  return arr;
+}
+
+export let toSeparateByoddEven = arr =>{
+  let num = {
+    even: [],
+    odd: []
+  }
+
+  arr.forEach(element =>{
+    element % 2 == 0
+    ? num.even.push(element) 
+    : num.odd.push(element);
+  });
+  
+  return num;
+}
+//Last exercise!!!
+export let Movie = class{
+  constructor(id, title, director, year, country, genres, qualification){
+    this.id = id;
+    this.title = title;
+    this.director = director;
+    this.year = year;
+    this.country = country;
+    this.genres = genres;
+    this.qualification = qualification;
+  }
+  static currentYear = new Date().getFullYear();
+  static getAcceptedGenres = () => ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary" ,"Drama", "Family", "Fantasy", "Film Noir", "Game-Show", "History", "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"];
+  
+  //Last exercise validations
+   static validatesId = id => /^[a-z]{2}\d{7}$/.test(id);
+   static validatesTitle = title => /\w{1,100}/.test(title);
+   static validatesBasicName = director => /[a-zA-Z]{1,50}/.test(director);
+   static validatesCountry = country => /^[a-zA-Z\ ]{1,50}$/.test(country);
+   static validatesYear = year => year > 999 && year <= Movie.currentYear;
+   static validatesQualification = q => q >= 1 && q <= 10 && /^\d{1,2}(\.\d{1,2})?$/.test(q);
+   static getGenres = collection =>{
+     let selectedGenres = [];
+     for(let el of collection){
+       if(el.checked){
+         selectedGenres.push(el.id);
+       }
+     }
+     return selectedGenres;
+   }
+   printDataSheet = output =>{
+    output.appendChild(document.createTextNode(`ID: ${this.id}`));
+    output.appendChild(document.createElement("br"));
+    output.appendChild(document.createTextNode(`Título: ${this.title}`));
+    output.appendChild(document.createElement("br"));
+    output.appendChild(document.createTextNode(`Director: ${this.director}`));
+    output.appendChild(document.createElement("br"));
+    output.appendChild(document.createTextNode(`Año: ${this.year}`));
+    output.appendChild(document.createElement("br"));
+    output.appendChild(document.createTextNode(`Paises: ${this.country}`));
+    output.appendChild(document.createElement("br"));
+    output.appendChild(document.createTextNode(`Géneros: ${this.genres}`));
+    output.appendChild(document.createElement("br"));
+    output.appendChild(document.createTextNode(`Calificación: ${this.qualification}`));
+   } 
+}
+
+
+
